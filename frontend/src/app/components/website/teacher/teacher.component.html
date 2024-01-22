@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+  <div class="container">
+    <div class="teacher-header">
+      <app-header></app-header>
+      <app-navbar></app-navbar>
+    </div>
+    <div class="content-container">
+      <div class="headline">
+        <span>Teacher</span>
+      </div>
+      <div class="teacher-container">
+        <div class="teacher-dropdown-container" *ngIf="displayedStudent !== undefined">
+          Nachhilfe anbieten in Fach:
+          <select id="selectSubject" [(ngModel)]="selectedSubjectId">
+            <option *ngFor="let item of eligibleSubjects" value={{item.id}}>
+              {{item.level}} Jg. {{item.name}}</option>
+          </select>
+        </div>
+        <div class="btn-container">
+          <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+        </div>
+      </div>
+      <div class="teacher-container-table" *ngIf="requestedSubjects.length > 0">
+         Fächer, in denen Nachhilfe angeboten wird:<!--sollte über dem Table stehen -->
+        <table>
+          <tr *ngFor="let item of requestedSubjects">
+            <td class="styled-td">{{item.level}} Jg. {{item.name}}</td>
+            <td><button class="btn-propertys btn-confirm" (click)="cancelRequest(item.id)">Nachhilfeangebot zurückziehen</button></td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</html>

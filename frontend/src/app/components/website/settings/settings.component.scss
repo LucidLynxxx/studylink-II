@@ -1,0 +1,17 @@
+html {
+    overflow: hidden;
+  }
+  
+  /*container*/
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--txt_col_1);
+  
+    flex-direction: column;
+  
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  

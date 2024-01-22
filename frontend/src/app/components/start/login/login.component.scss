@@ -1,0 +1,179 @@
+html {
+    overflow: hidden;
+  }
+  
+  /*container*/
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    flex-direction: column;
+  
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  
+  .login-container {
+    margin: 20px;
+    background: var(--bg_col_login);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px var(--txt_shadow);
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  
+  .title-container img {
+    width: 75px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: var(--txt_col_1);
+    font-size: 24px;
+  }
+  
+  /*input*/
+  form {
+    margin-bottom: 50px;
+  }
+  
+  .form-group {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* wenn man dazwischen einen Abstand möchte */
+  /* .form-group + .form-group { 
+    margin-top: 30px;
+  } */
+  
+  label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.2s ease all;
+    text-align: left;
+    color: #666;
+    text-transform: uppercase;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--prim_blue);
+  }
+  
+  label.active {
+    top: -10px;
+    left: -1px;
+    font-size: 14px;
+    color: var(--prim_blue);
+  }
+  
+  .error-email-message-container {
+    margin-top: 5px;
+    min-height: 35px;
+    margin-left: 10px;
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: none;
+  }
+  
+  .error-pw-message-container {
+    margin-left: 10px;
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: none;
+  }
+  
+  .form-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  
+  /*buttons*/
+  .btn-container {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn-confirm {
+    width: 45%;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .btn-confirm:hover {
+    background-color: var(--prim_blue);
+    cursor: pointer;
+  }
+  
+  .btn-confirm:active {
+    transform: translateX(-0.5px) translateY(-0.5px);
+  }
+  
+  .btn-password-forgotten {
+    color: var(--txt_col_1);
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: none;
+  }
+  
+  .btn-password-forgotten:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .btn-show-password {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+  }
+  
+  .btn-show-password img {
+    width: 22.5px;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+  }
+  
+  .btn-show-password:hover img {
+    opacity: 1;
+  }
+  

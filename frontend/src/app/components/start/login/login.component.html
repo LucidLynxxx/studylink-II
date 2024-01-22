@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+  <div class="container" (mouseup)="onButtonReleased()">
+    <app-header></app-header>
+    <div class="login-container">
+      <div class="title-container">
+        <h2>Anmelden</h2>
+        <img src="assets\img\studylink_II_logo.svg" alt="Logo">
+      </div>
+  
+      <form [formGroup]="loginForm" (keydown.enter)="login()">
+        <div class="form-group">
+          <label for="email" [class.active]="isEmailActive">E-Mail</label>
+          <input type="text" id="email" (focus)="onInputFocus('email')" (blur)="onInputBlur('email')" name="email" formControlName="email" required>
+        </div>
+        <div class="error-email-message-container">
+          <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="error-message">
+            E-Mail ist erforderlich.
+          </div>
+          <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="error-message">
+            Ungültige E-Mail-Adresse.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="passwort" [class.active]="isPasswordActive">Passwort</label>
+          <input type="{{ isPasswordVisible ? 'text' : 'password' }}" id="passwort" (focus)="onInputFocus('password')" (blur)="onInputBlur('password')" name="passwort" formControlName="password" required>
+          <button type="button" class="btn-show-password" (mousedown)="onButtonPressed()"><img [src]=" isPasswordVisible ? 'assets/img/eye.png' : 'assets/img/eye.png'" alt="eye"></button>
+        </div>
+        
+        <div class="form-btn-container">
+          <div class="error-pw-message-container">
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message">
+              Passwort erforderlich!
+            </div>
+          </div>
+          <button type="button" routerLink="/login/password-reset" class="btn-password-forgotten">Passwort vergessen?</button>
+        </div>
+      </form>
+  
+      <div class="btn-container">
+        <button  type="button" routerLink="/login/signup" class="btn-confirm btn-propertys">Konto Erstellen</button>
+        <!-- Deaktivierung des Anmeldebuttons, wenn das Formular ungültig ist -->
+        <button  type="button" (click)="login()" class="btn-confirm btn-propertys">Anmelden</button>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</html>

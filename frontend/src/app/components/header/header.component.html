@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <div class="header-container">
+    <div class="btn-home" (click)="directHome()">
+      <img src="assets\img\studylink_II_logo.svg" alt="studylink_II_logo" />
+      <div class="title">STUDYLINK II</div>
+    </div>
+    
+    <div class="stuff-container">
+      <div class="user-dropdown-container" *ngIf="shouldShowDropdown()" (mouseleave)="closeDropdown()">
+        <div class="user-initials-container">
+          <div class="user-initials" (mouseenter)="openDropdown()">{{ getUserInitials() }}</div>
+        </div>
+        <div class="dropdown-content" [ngClass]="{ 'open': isDropdownOpen }">
+          <a href="/settings" (click)="openSettings()">Einstellungen</a>
+          <a href="/" (click)="logout()">Ausloggen</a>
+        </div>
+      </div>
+
+      <div class="btn-theme-container">
+        <button class="btn-toggle-theme" (click)="toggleTheme()"><img [src]=" getThemeID() ? 'assets/img/moon.png' : 'assets/img/sun.png'" alt="themIcon"></button>
+      </div>
+      
+    </div>
+  </div>
+</html>

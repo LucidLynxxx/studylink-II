@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <div class="container">
+    <div class="student-header">
+      <app-header></app-header>
+      <app-navbar></app-navbar>
+    </div>
+    <div class="content-container">
+      <div class="headline">
+        <span>Student</span>
+      </div>
+      <div class="student-container">
+        <div class="student-dropdown-container" *ngIf="displayedStudent !== undefined">
+          Nachhilfe beantragen in Fach:
+          <select id="selectSubject" [(ngModel)]="selectedSubjectId">
+            <option *ngFor="let item of eligibleSubjects" value={{item.id}}>{{item.name}}</option>
+          </select>
+        </div>
+        <div class="btn-container">
+          <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+        </div>
+      </div>
+      <div class="student-container-table" *ngIf="requestedSubjects.length > 0">
+        Fächer, in denen Nachhilfe beatragt wurde: <!--sollte über dem Table stehen -->
+        <table>
+          <tr *ngFor="let item of requestedSubjects">
+            <td class="styled-td">{{item.name}}</td>
+            <td><button class="btn-propertys btn-confirm" (click)="cancelRequest(item.id)">Antrag auf Nachhilfe zurückziehen</button></td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</html>

@@ -1,0 +1,64 @@
+html {
+    overflow: hidden;
+  }
+  
+  .container {
+    min-width: 100vw;
+  }
+  
+  .list-container {
+      min-width: 80vw;
+  }
+  
+  .navbar {
+    background-color: var(--bg_col_nav);
+    overflow: hidden;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .navbar li {
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar a {
+    position: relative;
+    display: block;
+    color: var(--txt_col);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .navbar a:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--prim_blue);
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+  }
+  
+  .navbar a:hover {
+    background-color: var(--btn-navbar_hover);
+    color: var(--txt_col);
+  }
+  
+  .navbar a:hover:before {
+    width: 100%;
+    left: 0;
+  }
+  
+  .navbar a.active:before {
+    width: 100%;
+    left: 0;
+  }

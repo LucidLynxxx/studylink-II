@@ -1,0 +1,19 @@
+.footer-container {
+    min-width: 100vw;
+    min-height: 5vh;
+  
+    display: flex;
+    justify-content: center;
+  }
+  
+  .icon-container {
+    width: 50%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    height: 70px;
+  }

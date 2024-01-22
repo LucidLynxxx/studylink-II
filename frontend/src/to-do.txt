@@ -1,0 +1,65 @@
+In der Login-Component: wenn anmeldebutton klick und keine daten vorhanden dann soll errormessage ausgeführt werden.
+
+anzeigen auf homepage wo wieviel demand ist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar a {
+  display: block;
+  color: var(--txt_col);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: var(--btn-navbar_hover);
+  color: var(--txt_col);
+  border-bottom: 2px solid var(--btn-navbar_hover);
+}
+
+.navbar a.active {
+  background-color: var(--btn-navbar_hover);
+  color: var(--txt_col);
+  border-bottom: 2px solid var(--prim_blue);
+}
