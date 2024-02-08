@@ -14,7 +14,7 @@
         <div class="teacher-dropdown-container" *ngIf="displayedStudent !== undefined">
           Nachhilfe anbieten in Fach:
           <select id="selectSubject" [(ngModel)]="selectedSubjectId">
-            <option *ngFor="let item of eligibleSubjects" value={{item.id}}>
+            <option *ngFor="let item of enumKeys(test)" value={{item.id}}>
               {{item.level}} Jg. {{item.name}}</option>
           </select>
         </div>
