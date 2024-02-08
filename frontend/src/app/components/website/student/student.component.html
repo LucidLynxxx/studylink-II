@@ -11,18 +11,38 @@
         <span>Student</span>
       </div>
       <div class="student-container">
-        <div class="student-dropdown-container" *ngIf="displayedStudent !== undefined">
-          Nachhilfe beantragen in Fach:
-          <select id="selectSubject" [(ngModel)]="selectedSubjectId">
-            <option *ngFor="let item of eligibleSubjects" value={{item.id}}>{{item.name}}</option>
-          </select>
+        <div class="text text-container">
+          Nachhilfe beantragen
         </div>
-        <div class="btn-container">
-          <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+        <div class="student-content-container">
+          <div class="student-dropdown-container" *ngIf="displayedStudent !== undefined">
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Fach</mat-label>
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
+                  {{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Lehrer</mat-label>
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
+                  {{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+          <div class="btn-container">
+            <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+          </div>
         </div>
       </div>
       <div class="student-container-table" *ngIf="requestedSubjects.length > 0">
-        Fächer, in denen Nachhilfe beatragt wurde: <!--sollte über dem Table stehen -->
+        <div class="text text-container">
+          Fächer, in denen Nachhilfe beatragt wurde: <!--sollte über dem Table stehen -->
+        </div>
         <table>
           <tr *ngFor="let item of requestedSubjects">
             <td class="styled-td">{{item.name}}</td>

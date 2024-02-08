@@ -2,6 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Angular Material
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +20,6 @@ import { StartComponent } from './components/start/start/start.component';
 import { LoginComponent } from './components/start/login/login.component';
 import { SupportComponent } from './components/support/support.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordResetComponent } from './components/start/password-reset/password-reset.component';
 import { SignupComponent } from './components/start/signup/signup.component';
 import { HomepageComponent } from './components/website/homepage/homepage.component';
@@ -44,6 +52,10 @@ import { SettingsComponent } from './components/website/settings/settings.compon
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,16 +11,42 @@
         <span>Teacher</span>
       </div>
       <div class="teacher-container">
-        <div class="teacher-dropdown-container" *ngIf="displayedStudent !== undefined">
-          Nachhilfe anbieten in Fach:
-          <select id="selectSubject" [(ngModel)]="selectedSubjectId">
-            <option *ngFor="let item of eligibleSubjects" value={{item.id}}>
-              {{item.level}} Jg. {{item.name}}</option>
-          </select>
+        <div class="text text-container">
+          Nachhilfe geben
         </div>
-        <div class="btn-container">
-          <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+        <div class="teacher-content-container">
+          <div class="teacher-dropdown-container" *ngIf="displayedStudent !== undefined">
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Jahrgang</mat-label>
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+                <mat-option *ngFor="let item of levels" [value]="item.id">
+                  {{ item.level }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Fach</mat-label>
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
+                  {{ item.level }} Jg. {{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field color="primary" appearance="outline">
+              <mat-label>Lehrer</mat-label>
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
+                  {{ item.level }} Jg. {{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+          <div class="btn-container">
+            <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+          </div>
         </div>
+        
       </div>
       <div class="teacher-container-table" *ngIf="requestedSubjects.length > 0">
          Fächer, in denen Nachhilfe angeboten wird:<!--sollte über dem Table stehen -->

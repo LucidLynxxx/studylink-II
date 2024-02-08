@@ -42,15 +42,26 @@ span {
   text-shadow: 0px 0px 5px var(--txt_shadow);
 }
 
+.text-container {
+  margin-bottom: 30px;
+}
+
 .student-container {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 
   margin: 20px;
   background: var(--bg_col_login);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px var(--txt_shadow);
+}
+
+.student-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .student-container-table {
@@ -65,18 +76,12 @@ span {
 }
 
 .student-dropdown-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-select {
-  padding: 10px;
-  font-size: 16px;
-  margin: 16px;
-  background-color: var(--bg_col_1);
-  color: var(--txt_col_1);
-}
-
-option {
-  padding: 10px;
+mat-form-field + mat-form-field {
+  margin-left: 20px;
 }
 
 .btn-container {

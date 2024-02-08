@@ -1,5 +1,7 @@
 In der Login-Component: wenn anmeldebutton klick und keine daten vorhanden dann soll errormessage ausgeführt werden.
 
+dropdown menu bewegbar relative machen
+
 anzeigen auf homepage wo wieviel demand ist
 
 

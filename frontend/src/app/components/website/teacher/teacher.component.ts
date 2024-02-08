@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student, StudentService } from 'src/app/services/student.service';
-import { Subject } from 'src/app/services/subject.service';
+import { Level, Subject } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-teacher',
@@ -9,14 +9,19 @@ import { Subject } from 'src/app/services/subject.service';
 })
 export class TeacherComponent implements OnInit{
   displayedStudent!: Student;
+  
   protected eligibleSubjects = [] as Subject[];
   protected requestedSubjects = [] as Subject[];
 
-  selectedSubjectId: string = '';
+  Level = Level; // Expose enum to template
+  selectedSubjectId: Level | null = null;
+  levels: Subject[] = [];
 
   constructor(
     private studentService: StudentService
-  ) {}
+  ) {
+    this.levels = this.enumToArray(Level);
+  }
 
   ngOnInit(): void {
     this.studentService.getStudentByFullName("Fabio", "Strumegger")
@@ -44,13 +49,21 @@ export class TeacherComponent implements OnInit{
     console.log(this.requestedSubjects.length);
     //reset select tag
     //button soit a nu wos mochn
-    this.selectedSubjectId = ''
+    //this.selectedSubjectId = ''
   }
+
   cancelRequest(subjectId: number): void{
     const subjectToCancel: Subject = this.requestedSubjects.find(
       (subj) => subj.id == subjectId)!;
     this.eligibleSubjects.push(subjectToCancel);
     this.requestedSubjects = this.requestedSubjects.filter(
       (element) => element !== subjectToCancel);
+  }
+
+  enumToArray(enumVar: any): any[] {
+    return Object.keys(enumVar).filter(key => !isNaN(Number(enumVar[key]))).map(key => ({
+      id: enumVar[key],
+      level: key
+    }));
   }
 }
