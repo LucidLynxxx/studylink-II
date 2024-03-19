@@ -23,14 +23,25 @@ public class Qualification {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
+    @JoinColumn(name = "subject", nullable = false)
+    private Subject subject;
 
-    @Column(name="teacher_id", nullable = false)
-    private Long teacherId;
+    @ManyToOne
+    @JoinColumn(name="level", nullable = false)
+    private Level level;
 
-    @Column(name="curriculum_item_id", nullable = false)
-    private Long curriculumItemId;
+
+    // @ManyToOne
+    // @JoinColumn(name = "student_id", nullable = false)
+    // private Student student;
+
+    // @Column(name="teacher_id", nullable = false)
+    // private Long teacherId;
+
+    // @Column(name="curriculum_item_id", nullable = false)
+    // private Long curriculumItemId;
+
+
 
 
 }

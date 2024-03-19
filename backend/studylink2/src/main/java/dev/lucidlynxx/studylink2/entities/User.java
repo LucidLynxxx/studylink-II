@@ -23,8 +23,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "untisId", nullable = false)
-    private Long untisId;
+    // @Column(name = "untisId", nullable = false)
+    // private Long untisId;
 
     @Column(name = "login", nullable = false)
     private String login;
@@ -32,4 +32,18 @@ public class User {
     
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
+
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
+
+    @Column(name = "isStudent", nullable = false)
+    private boolean isStudent;
+
+    @Column(name = "isTutor", nullable = false)
+    private boolean isTutor;
+
+    
 }
