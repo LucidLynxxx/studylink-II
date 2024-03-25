@@ -15,6 +15,8 @@ export class TeacherComponent implements OnInit{
 
   Level = Level; // Expose enum to template
   selectedSubjectId: Level | null = null;
+  selectedSubjectName: String = '';
+  selectedSubjectTeacher: String = '';
   levels: Subject[] = [];
 
   constructor(
@@ -39,7 +41,7 @@ export class TeacherComponent implements OnInit{
   }
 
   onClick(): void {
-    console.log('Nachhilfe beantragt in ' + this.selectedSubjectId + ' warten auf match...')
+    console.log('Nachhilfe beantragt in ' + this.selectedSubjectId + ' ' + this.selectedSubjectName + ' warten auf match...')
     const requestedSubject: Subject = this.eligibleSubjects.find(
       (subj)=> subj.id.toString() == this.selectedSubjectId)!; //! necessary; this should always find a value
     console.log(requestedSubject);
@@ -48,8 +50,8 @@ export class TeacherComponent implements OnInit{
       (element)=> element !== requestedSubject);
     console.log(this.requestedSubjects.length);
     //reset select tag
-    //button soit a nu wos mochn
-    //this.selectedSubjectId = ''
+    //button should do something
+    this.selectedSubjectName = '';
   }
 
   cancelRequest(subjectId: number): void{
@@ -60,7 +62,7 @@ export class TeacherComponent implements OnInit{
       (element) => element !== subjectToCancel);
   }
 
-  enumToArray(enumVar: any): any[] {
+  enumToArray(enumVar: any): any[] {  //convert enum to array
     return Object.keys(enumVar).filter(key => !isNaN(Number(enumVar[key]))).map(key => ({
       id: enumVar[key],
       level: key

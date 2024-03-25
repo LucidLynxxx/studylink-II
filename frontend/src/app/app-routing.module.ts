@@ -7,19 +7,19 @@ import { PasswordResetComponent } from './components/start/password-reset/passwo
 import { SignupComponent } from './components/start/signup/signup.component';
 import { HomepageComponent } from './components/website/homepage/homepage.component';
 import { MatchesComponent } from './components/website/matches/matches.component';
-import { TeacherComponent } from './components/website/teacher/teacher.component';
 import { StudentComponent } from './components/website/student/student.component';
 import { SettingsComponent } from './components/website/settings/settings.component';
+import { TutorComponent } from './components/website/tutor/tutor.component';
 
 const routes: Routes = [
-  { path: '', component:  StartComponent},
-  { path: 'login', component: LoginComponent },
+  { path: '', component: StartComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'support', component: SupportComponent},
   { path: 'login/password-reset', component: PasswordResetComponent},
   { path: 'login/signup', component: SignupComponent},
   { path: 'homepage', component: HomepageComponent},
   { path: 'matches', component: MatchesComponent},
-  { path: 'teacher', component: TeacherComponent},
+  { path: 'tutor', component: TutorComponent},
   { path: 'student', component: StudentComponent},
   { path: 'settings', component: SettingsComponent}
 ];

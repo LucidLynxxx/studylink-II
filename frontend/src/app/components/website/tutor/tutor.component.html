@@ -2,20 +2,20 @@
 
 <html>
   <div class="container">
-    <div class="student-header">
+    <div class="tutor-header">
       <app-header></app-header>
       <app-navbar></app-navbar>
     </div>
     <div class="content-container">
       <div class="headline">
-        <span>Student</span>
+        <span>Tutor</span>
       </div>
-      <div class="student-container">
+      <div class="tutor-container">
         <div class="text text-container">
-          Nachhilfe beantragen
+          Nachhilfe geben
         </div>
-        <div class="student-content-container">
-          <div class="student-dropdown-container" *ngIf="displayedStudent !== undefined">
+        <div class="tutor-content-container">
+          <div class="tutor-dropdown-container" *ngIf="displayedStudent !== undefined">
             <mat-form-field color="primary" appearance="outline">
               <mat-label>Jahrgang</mat-label>
               <mat-select [(ngModel)]="selectedSubjectId" id="selectClass">
@@ -27,27 +27,35 @@
             <mat-form-field color="primary" appearance="outline">
               <mat-label>Fach</mat-label>
               <mat-select [(ngModel)]="selectedSubjectName" id="selectSubject">
-                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.name">
+                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
                   {{ item.name }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
+            <!-- <mat-form-field color="primary" appearance="outline">
+              <mat-label>Lehrer</mat-label>
+              <mat-select [(ngModel)]="selectedSubjecttutor" id="selecttutor">
+                <mat-option>
+                  JerA
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
           </div>
           
           <div class="btn-container">
             <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId || !selectedSubjectName">Bestätigen</button>
           </div>
         </div>
+        
       </div>
-      <div class="student-container-table" *ngIf="requestedSubjects.length > 0">
-        <div class="text text-container">
-          Fächer, in denen Nachhilfe beatragt wurde: <!--sollte über dem Table stehen -->
-        </div>
+      <div class="tutor-container-table" *ngIf="requestedSubjects.length > 0">
+         Fächer, in denen Nachhilfe angeboten wird:<!--sollte über dem Table stehen -->
         <table>
           <tr *ngFor="let item of requestedSubjects">
-            <td class="styled-td">{{item.id}}{{item.name}}</td>
-            <td><button class="btn-propertys btn-confirm" (click)="cancelRequest(item.id)">Antrag auf Nachhilfe zurückziehen</button></td>
+            <td class="styled-td">{{item.level}} Jg. {{item.name}}</td>
+            <td><button class="btn-propertys btn-confirm" (click)="cancelRequest(item.id)">Nachhilfeangebot zurückziehen</button></td>
           </tr>
+
         </table>
       </div>
     </div>

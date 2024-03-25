@@ -18,32 +18,32 @@
           <div class="teacher-dropdown-container" *ngIf="displayedStudent !== undefined">
             <mat-form-field color="primary" appearance="outline">
               <mat-label>Jahrgang</mat-label>
-              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+              <mat-select [(ngModel)]="selectedSubjectId" id="selectClass">
                 <mat-option *ngFor="let item of levels" [value]="item.id">
-                  {{ item.level }}
+                  {{ item.id }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field color="primary" appearance="outline">
               <mat-label>Fach</mat-label>
-              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
+              <mat-select [(ngModel)]="selectedSubjectName" id="selectSubject">
                 <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
-                  {{ item.level }} Jg. {{ item.name }}
+                  {{ item.name }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field color="primary" appearance="outline">
+            <!-- <mat-form-field color="primary" appearance="outline">
               <mat-label>Lehrer</mat-label>
-              <mat-select [(ngModel)]="selectedSubjectId" id="selectSubject">
-                <mat-option *ngFor="let item of eligibleSubjects" [value]="item.id">
-                  {{ item.level }} Jg. {{ item.name }}
+              <mat-select [(ngModel)]="selectedSubjectTeacher" id="selectTeacher">
+                <mat-option>
+                  JerA
                 </mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
           
           <div class="btn-container">
-            <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId">Bestätigen</button>
+            <button type="button" class="btn-propertys btn-confirm" (click)="onClick()" [disabled]="!selectedSubjectId || !selectedSubjectName">Bestätigen</button>
           </div>
         </div>
         

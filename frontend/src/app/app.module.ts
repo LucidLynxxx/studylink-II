@@ -25,9 +25,9 @@ import { SignupComponent } from './components/start/signup/signup.component';
 import { HomepageComponent } from './components/website/homepage/homepage.component';
 import { NavbarComponent } from './components/website/navbar/navbar.component';
 import { MatchesComponent } from './components/website/matches/matches.component';
-import { TeacherComponent } from './components/website/teacher/teacher.component';
 import { StudentComponent } from './components/website/student/student.component';
 import { SettingsComponent } from './components/website/settings/settings.component';
+import { TutorComponent } from './components/website/tutor/tutor.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +42,9 @@ import { SettingsComponent } from './components/website/settings/settings.compon
     HomepageComponent,
     NavbarComponent,
     MatchesComponent,
-    TeacherComponent,
     StudentComponent,
-    SettingsComponent
+    SettingsComponent,
+    TutorComponent
   ],
   imports: [
     BrowserModule,

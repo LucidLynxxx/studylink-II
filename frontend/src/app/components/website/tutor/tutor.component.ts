@@ -3,17 +3,18 @@ import { Student, StudentService } from 'src/app/services/student.service';
 import { Level, Subject } from 'src/app/services/subject.service';
 
 @Component({
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.scss']
+  selector: 'app-tutor',
+  templateUrl: './tutor.component.html',
+  styleUrls: ['./tutor.component.scss']
 })
-export class StudentComponent implements OnInit{
+export class TutorComponent {
   displayedStudent!: Student;
   
   protected eligibleSubjects = [] as Subject[];
   protected requestedSubjects = [] as Subject[];
 
-  selectedSubjectId: null = null;
+  Level = Level; // Expose enum to template
+  selectedSubjectId: Level | null = null;
   selectedSubjectName: String = '';
   selectedSubjectTeacher: String = '';
   levels: Subject[] = [];
@@ -29,8 +30,8 @@ export class StudentComponent implements OnInit{
       .then((result: Student | undefined) => {
         if(result){   //if a student was returned
           this.displayedStudent = result;
-          this.eligibleSubjects = this.displayedStudent.eligibleAsStudent;
-          this.requestedSubjects = this.displayedStudent.requestedAsStudent;
+          this.eligibleSubjects = this.displayedStudent.eligibleAsTeacher;
+          this.requestedSubjects = this.displayedStudent.requestedAsTeacher;
           console.log(this.displayedStudent);
         } else {
           //returned undefined
@@ -40,7 +41,7 @@ export class StudentComponent implements OnInit{
   }
 
   onClick(): void {
-    console.log('Nachhilfe beantragt in ' + this.selectedSubjectId + ' ' + this.selectedSubjectName + '. Warten auf match...')
+    console.log('Nachhilfe beantragt in ' + this.selectedSubjectId + ' ' + this.selectedSubjectName + ' warten auf match...')
     const requestedSubject: Subject = this.eligibleSubjects.find(
       (subj)=> subj.id.toString() == this.selectedSubjectId)!; //! necessary; this should always find a value
     console.log(requestedSubject);
@@ -50,9 +51,9 @@ export class StudentComponent implements OnInit{
     console.log(this.requestedSubjects.length);
     //reset select tag
     //button should do something
-    this.selectedSubjectName = ''
+    this.selectedSubjectName = '';
   }
-//muss geändert werden
+
   cancelRequest(subjectId: number): void{
     const subjectToCancel: Subject = this.requestedSubjects.find(
       (subj) => subj.id == subjectId)!;

@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { ThemeService } from '../../services/theme.service';
+import { ThemeService } from 'src/app/services/theme.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ export class HeaderComponent {
     this.themeService.toggleThemeService();
   }
 
-  getThemeID(): boolean {
+  getThemeStatus(): boolean {
     return this.themeService.getThemeStatus();
   }
 
@@ -28,7 +28,7 @@ export class HeaderComponent {
     if (
       this.router.url === '/homepage' ||
       this.router.url === '/matches' ||
-      this.router.url === '/teacher' ||
+      this.router.url === '/tutor' ||
       this.router.url === '/student' ||
       this.router.url === '/settings'
     ) {
@@ -71,7 +71,7 @@ export class HeaderComponent {
   }
 
   shouldShowDropdown(): boolean {
-    const allowedURLs = ['/homepage', '/matches', '/teacher', '/student' , '/settings'];
+    const allowedURLs = ['/homepage', '/matches', '/tutor', '/student' , '/settings'];
     return allowedURLs.includes(this.router.url);
   }
 

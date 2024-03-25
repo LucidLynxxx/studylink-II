@@ -27,9 +27,9 @@ export class ThemeService {
 
   private updateTheme(): void {
     if (this.theme) {
-      document.body.classList.add('theme-white');
+      document.body.classList.add('light-mode');
     } else {
-      document.body.classList.remove('theme-white');
+      document.body.classList.remove('light-mode');
     }
   }
 }
