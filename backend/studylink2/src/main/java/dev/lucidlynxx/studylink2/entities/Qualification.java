@@ -23,11 +23,11 @@ public class Qualification {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "subject", nullable = false)
+    // @JoinColumn(name = "subject", nullable = false)
     private Subject subject;
 
     @ManyToOne
-    @JoinColumn(name="level", nullable = false)
+    // @JoinColumn(name="level", nullable = false)
     private Level level;
 
 

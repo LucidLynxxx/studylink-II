@@ -14,10 +14,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 @Entity
-@Table(name="levels")
-public class Level {
+@Table(name="groups")
+public class Group {
 
     @Id
-    @Column(name="level", nullable = false)
+    private Long id;
+
+    @Column(name="name", nullable=false)
+    private String name;
+
+    @Column(name="level", nullable=false)
     private Long level;
 }

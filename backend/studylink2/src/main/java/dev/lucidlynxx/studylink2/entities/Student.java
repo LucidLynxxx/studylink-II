@@ -20,16 +20,21 @@ public class Student {
     @Id
     private Long id;
 
-    @Column(name = "key", nullable = false)
-    private Long key;
-
     @Column(name = "firstName", nullable = false)
     private String firstName;
 
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @Column(name = "untisName", nullable = false)
-    private String untisName;
+    // @Column(name = "department", nullable = false)
+    // private Department department;
+
+    // @Column(name="group", nullable = false)
+    // private Group group;
+
+    
+
+    // @Column(name = "untisName", nullable = false)
+    // private String untisName;
 
 }

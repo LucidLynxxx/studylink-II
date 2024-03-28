@@ -38,7 +38,7 @@ public class Match {
     private MatchStatusEnum status;
 
     @ManyToOne
-    @JoinColumn(name="Qualification", nullable = false)
+    // @JoinColumn(name="Qualification", nullable = false)
     private Qualification qualification;
 
 }
